@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { ArrowRight, Heart, Home, Sparkles, Clock, Mail, Phone } from 'lucide-react';
+import { ArrowRight, Heart, Home, Microscope, Rocket, Code2, Search, Clock, Mail, Phone } from 'lucide-react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -121,25 +121,67 @@ const ProposalPage = () => {
       </section>
 
       {/* Process */}
+      {/* Process */}
       <section className="py-20 px-6 bg-gray-50">
         <div className="max-w-4xl mx-auto space-y-12">
           <h3 className="text-3xl font-semibold" data-aos="fade-up">How We'll Work Together</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-4" data-aos="fade-right" data-aos-delay="100">
-              <h4 className="text-xl font-semibold">1. Discovery & Design</h4>
-              <p className="text-gray-600">Quick design session to align on vision, layout, and imagery choices</p>
+              <div className="flex items-start space-x-4">
+                <div className="bg-black rounded-full p-3 flex-shrink-0">
+                  <Search className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-semibold">1. Discovery & Design</h4>
+                  <p className="text-gray-600">Quick design session to align on vision, layout, and imagery choices</p>
+                </div>
+              </div>
             </div>
             <div className="space-y-4" data-aos="fade-left" data-aos-delay="200">
-              <h4 className="text-xl font-semibold">2. Development</h4>
-              <p className="text-gray-600">Swift, professional implementation of your website</p>
+              <div className="flex items-start space-x-4">
+                <div className="bg-black rounded-full p-3 flex-shrink-0">
+                  <Code2 className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-semibold">2. Development</h4>
+                  <p className="text-gray-600">Swift, professional implementation of your website</p>
+                </div>
+              </div>
             </div>
             <div className="space-y-4" data-aos="fade-right" data-aos-delay="300">
-              <h4 className="text-xl font-semibold">3. Review & Refine</h4>
-              <p className="text-gray-600">Collaborative feedback and adjustments</p>
+              <div className="flex items-start space-x-4">
+                <div className="bg-black rounded-full p-3 flex-shrink-0">
+                  <Microscope className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-semibold">3. Review & Refine</h4>
+                  <p className="text-gray-600">Collaborative feedback and adjustments</p>
+                </div>
+              </div>
             </div>
             <div className="space-y-4" data-aos="fade-left" data-aos-delay="400">
-              <h4 className="text-xl font-semibold">4. Launch & Support</h4>
-              <p className="text-gray-600">Smooth deployment with ongoing assistance</p>
+              <div className="flex items-start space-x-4">
+                <div className="bg-black rounded-full p-3 flex-shrink-0">
+                  <Rocket className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-semibold">4. Launch & Support</h4>
+                  <p className="text-gray-600">Smooth deployment with ongoing assistance</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            className="mt-12 p-6 border border-gray-200 rounded-lg bg-white"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div className="flex items-center space-x-3">
+              <Clock className="h-5 w-5 text-gray-600" />
+              <p className="text-gray-600">
+                Expected timeline: Your new website will be fully designed, developed, and deployed within 3-4 weeks.
+              </p>
             </div>
           </div>
         </div>
@@ -200,6 +242,10 @@ const ProposalPage = () => {
                   <li className="flex items-center">
                     <ArrowRight className="mr-2 h-4 w-4" />
                     Responsive design for all devices
+                  </li>
+                  <li className="flex items-center">
+                    <ArrowRight className="mr-2 h-4 w-4" />
+                    Professional content writing and copywriting
                   </li>
                   <li className="flex items-center">
                     <ArrowRight className="mr-2 h-4 w-4" />
