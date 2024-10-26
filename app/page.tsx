@@ -42,14 +42,14 @@ const ProposalPage = () => {
 
         {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto space-y-8" data-aos="fade-down">
-          <div className="flex items-center space-x-2 text-gray-200" data-aos="fade-left">
+          <div className="flex items-center space-x-2 text-gray-200">
             <Home className="h-5 w-5" />
             <span>Website Development Proposal for</span>
           </div>
-          <h1 className="text-6xl font-bold tracking-tight text-white" data-aos="fade-right">
+          <h1 className="text-6xl font-bold tracking-tight text-white">
             Xtra Loft Space
           </h1>
-          <p className="text-xl text-gray-200 max-w-2xl" data-aos="fade-left">
+          <p className="text-xl text-gray-200 max-w-2xl">
             Creating a modern, engaging online presence that showcases your expertise
             in loft conversions and home improvements.
           </p>
