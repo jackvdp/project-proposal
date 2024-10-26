@@ -7,6 +7,7 @@ import { ArrowRight, Heart, Home, Microscope, Rocket, Code2, Search, Clock, Mail
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import CaseStudies from '@/components/CaseStudies';
+import Navigation from '@/components/Navigation';
 
 const ProposalPage = () => {
   useEffect(() => {
@@ -22,8 +23,9 @@ const ProposalPage = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <Navigation />
       {/* Hero Section */}
-      <section className="relative h-[80vh] min-h-[600px] flex items-center px-6">
+      <section id="hero" className="relative h-[80vh] min-h-[600px] flex items-center px-6">
         {/* Background Image */}
         <div
           className="absolute inset-0 w-full h-full z-0"
@@ -55,7 +57,7 @@ const ProposalPage = () => {
       </section>
 
       {/* Personal Touch */}
-      <section className="py-20 px-6">
+      <section id="approach" className="py-20 px-6">
         <div className="max-w-4xl mx-auto space-y-8" data-aos="fade-right">
 
           <Card className="p-8 border-2">
@@ -103,7 +105,7 @@ const ProposalPage = () => {
       </section>
 
       {/* Process */}
-      <section className="py-20 px-6 bg-slate-50">
+      <section id="process" className="py-20 px-6 bg-slate-50">
         <div className="max-w-4xl mx-auto space-y-12">
           <h3 className="text-3xl font-semibold" data-aos="fade-up">How We'll Work Together</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -159,7 +161,7 @@ const ProposalPage = () => {
       </section>
 
       {/* Recent Work */}
-      <section className="py-20 px-6">
+      <section id="work" className="py-20 px-6">
         <div className="max-w-4xl mx-auto space-y-12">
           <h3 className="text-3xl font-semibold" data-aos="fade-up">Recent Projects</h3>
           <CaseStudies />
@@ -167,7 +169,7 @@ const ProposalPage = () => {
       </section>
 
       {/* Investment */}
-      <section className="py-20 px-6 bg-slate-50">
+      <section id="pricing" className="py-20 px-6 bg-slate-50">
         <div className="max-w-4xl mx-auto space-y-8" data-aos="fade-up">
           <h3 className="text-3xl font-semibold">Pricing</h3>
           <Card className="p-8">
@@ -200,7 +202,7 @@ const ProposalPage = () => {
       </section>
 
       {/* Contact */}
-      <section className="py-20 px-6">
+      <section id="contact" className="py-20 px-6">
         <div className="max-w-4xl mx-auto space-y-8" data-aos="fade-up">
           <div className="text-center space-y-4">
             <h3 className="text-3xl font-semibold">Let's Create Something Great</h3>
