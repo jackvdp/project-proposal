@@ -25,7 +25,7 @@ const ProposalPage = () => {
   const caseStudies: CaseStudy[] = [
     {
       title: "Patch Consultancy",
-      description: "Professional services website with modern design",
+      description: "Professional hospitality consultancy",
       url: "patchconsultancy.co.uk",
       image: "/images/casestudies/patch.webp"
     },
@@ -37,7 +37,7 @@ const ProposalPage = () => {
     },
     {
       title: "Vanderpump FX",
-      description: "Creative digital agency showcase",
+      description: "Forex services website",
       url: "vanderpumpfx.com",
       image: "/images/casestudies/vanderpumpfx.webp"
     }
@@ -116,7 +116,7 @@ const ProposalPage = () => {
                 className="flex items-center space-x-2 font-medium text-black transition-transform group-hover:translate-x-2"
               >
                 <b>Visit vanderpump.tech</b>
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4 flex-shrink-0" />
               </a>
             </div>
 
@@ -222,23 +222,23 @@ const ProposalPage = () => {
                 <p className="text-gray-600">Everything included:</p>
                 <ul className="space-y-3">
                   <li className="flex items-center">
-                    <ArrowRight className="mr-2 h-4 w-4" />
+                    <ArrowRight className="mr-2 h-4 w-4 flex-shrink-0" />
                     Complete website development
                   </li>
                   <li className="flex items-center">
-                    <ArrowRight className="mr-2 h-4 w-4" />
+                    <ArrowRight className="mr-2 h-4 w-4 flex-shrink-0" />
                     Responsive design for all devices
                   </li>
                   <li className="flex items-center">
-                    <ArrowRight className="mr-2 h-4 w-4" />
+                    <ArrowRight className="mr-2 h-4 w-4 flex-shrink-0" />
                     Professional content writing and copywriting
                   </li>
                   <li className="flex items-center">
-                    <ArrowRight className="mr-2 h-4 w-4" />
+                    <ArrowRight className="mr-2 h-4 w-4 flex-shrink-0" />
                     Personal design consultation
                   </li>
                   <li className="flex items-center">
-                    <ArrowRight className="mr-2 h-4 w-4" />
+                    <ArrowRight className="mr-2 h-4 w-4 flex-shrink-0" />
                     Ongoing support at no extra cost
                   </li>
                 </ul>
