@@ -18,7 +18,7 @@ const ProposalPage = () => {
   }, []);
 
   const openEmail = () => {
-    window.location.href = "mailto:jack@pumpymusic.co.uk";
+    window.location.href = "mailto:jack@vanderpump.tech";
   };
 
   return (
@@ -42,14 +42,14 @@ const ProposalPage = () => {
 
         {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto space-y-8" data-aos="fade-down">
-          <div className="flex items-center space-x-2 text-gray-200">
+          <div className="flex items-center space-x-2 text-gray-200" data-aos="fade-left">
             <Home className="h-5 w-5" />
             <span>Website Development Proposal for</span>
           </div>
-          <h1 className="text-6xl font-bold tracking-tight text-white">
+          <h1 className="text-6xl font-bold tracking-tight text-white" data-aos="fade-right">
             Xtra Loft Space
           </h1>
-          <p className="text-xl text-gray-200 max-w-2xl">
+          <p className="text-xl text-gray-200 max-w-2xl" data-aos="fade-left">
             Creating a modern, engaging online presence that showcases your expertise
             in loft conversions and home improvements.
           </p>
@@ -58,7 +58,7 @@ const ProposalPage = () => {
 
       {/* Personal Touch */}
       <section id="approach" className="py-20 px-6">
-        <div className="max-w-4xl mx-auto space-y-8" data-aos="fade-right">
+        <div className="max-w-4xl mx-auto space-y-8" data-aos="fade-right" data-aos-offset="0">
 
           <Card className="p-8 border-2">
             <div className="flex items-start space-x-4">
@@ -133,7 +133,7 @@ const ProposalPage = () => {
             ].map((step, index) => (
               <div key={index} className="space-y-4" data-aos={`fade-${index % 2 === 0 ? 'right' : 'left'}`} data-aos-delay={index * 100}>
                 <div className="flex items-start space-x-4">
-                  <div className="bg-black rounded-full p-3 flex-shrink-0">
+                  <div className="bg-slate-800 rounded-full p-3 flex-shrink-0">
                     <step.icon className="h-5 w-5 text-white" />
                   </div>
                   <div>
@@ -213,14 +213,16 @@ const ProposalPage = () => {
           <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
             <button
               onClick={openEmail}
-              className="bg-black text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition-colors flex items-center"
+              className="bg-slate-800 hover:bg-slate-900 text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition-colors flex items-center"
+              data-aos="fade-right"
             >
               <Mail className="mr-2 h-5 w-5" />
-              jack@pumpymusic.co.uk
+              jack@vanderpump.tech
             </button>
             <a
               href="tel:07831640003"
               className="flex items-center text-gray-600 hover:text-black transition-colors"
+              data-aos="fade-left"
             >
               <Phone className="mr-2 h-5 w-5" />
               07831 640003
