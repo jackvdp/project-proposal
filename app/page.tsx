@@ -7,6 +7,13 @@ import { ArrowRight, Heart, Home, Microscope, Rocket, Code2, Search, Clock, Mail
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+interface CaseStudy {
+  title: string;
+  description: string;
+  url: string;
+  image: string;
+}
+
 const ProposalPage = () => {
   useEffect(() => {
     AOS.init({
@@ -15,7 +22,7 @@ const ProposalPage = () => {
     });
   }, []);
 
-  const caseStudies = [
+  const caseStudies: CaseStudy[] = [
     {
       title: "Patch Consultancy",
       description: "Professional services website with modern design",
@@ -48,7 +55,7 @@ const ProposalPage = () => {
         <div
           className="absolute inset-0 w-full h-full z-0"
           style={{
-            backgroundImage: `url('/images/loft.jpeg')`, // You'll replace this with your actual loft conversion image
+            backgroundImage: `url('/images/loft.jpeg')`,
             backgroundPosition: 'center',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat'
@@ -121,7 +128,6 @@ const ProposalPage = () => {
       </section>
 
       {/* Process */}
-      {/* Process */}
       <section className="py-20 px-6 bg-gray-50">
         <div className="max-w-4xl mx-auto space-y-12">
           <h3 className="text-3xl font-semibold" data-aos="fade-up">How We'll Work Together</h3>
@@ -193,29 +199,7 @@ const ProposalPage = () => {
           <h3 className="text-3xl font-semibold" data-aos="fade-up">Recent Projects</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {caseStudies.map((study, index) => (
-              <a
-                key={index}
-                href={`https://${study.url}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative"
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-              >
-                <Card className="overflow-hidden">
-                  <img src={study.image} alt={study.title} className="w-full h-48 object-cover" />
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-75 transition-all duration-300 flex items-center justify-center">
-                    <div className="opacity-0 group-hover:opacity-100 text-white text-center p-4 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                      <h4 className="font-semibold mb-2">{study.title}</h4>
-                      <p className="text-sm">{study.description}</p>
-                      <div className="mt-4 flex items-center justify-center">
-                        <span>Visit Site</span>
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-              </a>
+              <CaseStudyView study={study} index={index} />
             ))}
           </div>
         </div>
@@ -305,3 +289,34 @@ const ProposalPage = () => {
 };
 
 export default ProposalPage;
+
+function CaseStudyView({ study, index }: { study: CaseStudy, index: number }) {
+  return (
+    <a
+      key={index}
+      href={`https://${study.url}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative"
+      data-aos="fade-up"
+      data-aos-delay={index * 100}
+    >
+      <Card className="overflow-hidden">
+        <div className='aspect-[16/10] relative'>
+          <img src={study.image} alt={study.title} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-75 transition-all duration-300 flex items-center justify-center">
+            <div className="opacity-0 group-hover:opacity-100 text-white text-center p-4 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+              <h4 className="font-semibold mb-2">{study.title}</h4>
+              <p className="text-sm">{study.description}</p>
+              <div className="mt-4 flex items-center justify-center">
+                <span>Visit Site</span>
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </Card>
+    </a>
+  );
+}
