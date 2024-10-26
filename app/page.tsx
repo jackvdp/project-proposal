@@ -6,13 +6,7 @@ import { Separator } from "@/components/ui/separator";
 import { ArrowRight, Heart, Home, Microscope, Rocket, Code2, Search, Clock, Mail, Phone } from 'lucide-react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
-interface CaseStudy {
-  title: string;
-  description: string;
-  url: string;
-  image: string;
-}
+import CaseStudies from '@/components/CaseStudies';
 
 const ProposalPage = () => {
   useEffect(() => {
@@ -21,27 +15,6 @@ const ProposalPage = () => {
       once: true
     });
   }, []);
-
-  const caseStudies: CaseStudy[] = [
-    {
-      title: "Patch Consultancy",
-      description: "Professional hospitality consultancy",
-      url: "patchconsultancy.co.uk",
-      image: "/images/casestudies/patch.webp"
-    },
-    {
-      title: "Gigabyte Software",
-      description: "Technology solutions platform",
-      url: "gigabyte.software",
-      image: "/images/casestudies/gigabyte.webp"
-    },
-    {
-      title: "Vanderpump FX",
-      description: "Forex services website",
-      url: "vanderpumpfx.com",
-      image: "/images/casestudies/vanderpumpfx.webp"
-    }
-  ];
 
   const openEmail = () => {
     window.location.href = "mailto:jack@pumpymusic.co.uk";
@@ -134,50 +107,40 @@ const ProposalPage = () => {
         <div className="max-w-4xl mx-auto space-y-12">
           <h3 className="text-3xl font-semibold" data-aos="fade-up">How We'll Work Together</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="space-y-4" data-aos="fade-right" data-aos-delay="100">
-              <div className="flex items-start space-x-4">
-                <div className="bg-black rounded-full p-3 flex-shrink-0">
-                  <Search className="h-5 w-5 text-white" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-semibold">1. Discovery & Design</h4>
-                  <p className="text-gray-600">Quick design session to align on vision, layout, and imagery choices</p>
-                </div>
-              </div>
-            </div>
-            <div className="space-y-4" data-aos="fade-left" data-aos-delay="200">
-              <div className="flex items-start space-x-4">
-                <div className="bg-black rounded-full p-3 flex-shrink-0">
-                  <Code2 className="h-5 w-5 text-white" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-semibold">2. Development</h4>
-                  <p className="text-gray-600">Swift, professional implementation of your website</p>
-                </div>
-              </div>
-            </div>
-            <div className="space-y-4" data-aos="fade-right" data-aos-delay="300">
-              <div className="flex items-start space-x-4">
-                <div className="bg-black rounded-full p-3 flex-shrink-0">
-                  <Microscope className="h-5 w-5 text-white" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-semibold">3. Review & Refine</h4>
-                  <p className="text-gray-600">Collaborative feedback and adjustments</p>
-                </div>
-              </div>
-            </div>
-            <div className="space-y-4" data-aos="fade-left" data-aos-delay="400">
-              <div className="flex items-start space-x-4">
-                <div className="bg-black rounded-full p-3 flex-shrink-0">
-                  <Rocket className="h-5 w-5 text-white" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-semibold">4. Launch & Support</h4>
-                  <p className="text-gray-600">Smooth deployment with ongoing assistance</p>
+            {[
+              {
+                title: "Discovery & Design",
+                description: "Quick design session to align on vision, layout, and imagery choices",
+                icon: Search
+              },
+              {
+                title: "Development",
+                description: "Swift, professional implementation of your website",
+                icon: Code2
+              },
+              {
+                title: "Review & Refine",
+                description: "Collaborative feedback and adjustments",
+                icon: Microscope
+              },
+              {
+                title: "Launch & Support",
+                description: "Smooth deployment with ongoing assistance",
+                icon: Rocket
+              },
+            ].map((step, index) => (
+              <div key={index} className="space-y-4" data-aos={`fade-${index % 2 === 0 ? 'right' : 'left'}`} data-aos-delay={index * 100}>
+                <div className="flex items-start space-x-4">
+                  <div className="bg-black rounded-full p-3 flex-shrink-0">
+                    <step.icon className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-semibold">{step.title}</h4>
+                    <p className="text-gray-600">{step.description}</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
 
           <div
@@ -199,11 +162,7 @@ const ProposalPage = () => {
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto space-y-12">
           <h3 className="text-3xl font-semibold" data-aos="fade-up">Recent Projects</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {caseStudies.map((study, index) => (
-              <CaseStudyView key={index} study={study} index={index} />
-            ))}
-          </div>
+          <CaseStudies />
         </div>
       </section>
 
@@ -221,26 +180,18 @@ const ProposalPage = () => {
               <div className="space-y-4">
                 <p className="text-gray-600">Everything included:</p>
                 <ul className="space-y-3">
-                  <li className="flex items-center">
-                    <ArrowRight className="mr-2 h-4 w-4 flex-shrink-0" />
-                    Complete website development
-                  </li>
-                  <li className="flex items-center">
-                    <ArrowRight className="mr-2 h-4 w-4 flex-shrink-0" />
-                    Responsive design for all devices
-                  </li>
-                  <li className="flex items-center">
-                    <ArrowRight className="mr-2 h-4 w-4 flex-shrink-0" />
-                    Professional content writing and copywriting
-                  </li>
-                  <li className="flex items-center">
-                    <ArrowRight className="mr-2 h-4 w-4 flex-shrink-0" />
-                    Personal design consultation
-                  </li>
-                  <li className="flex items-center">
-                    <ArrowRight className="mr-2 h-4 w-4 flex-shrink-0" />
-                    Ongoing support at no extra cost
-                  </li>
+                  {[
+                    'Complete website development',
+                    'Responsive design for all devices',
+                    'Professional content writing and copywriting',
+                    'Personal design consultation',
+                    'Ongoing support at no extra cost'
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-center">
+                      <ArrowRight className="mr-2 h-4 w-4 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </CardContent>
@@ -291,34 +242,3 @@ const ProposalPage = () => {
 };
 
 export default ProposalPage;
-
-function CaseStudyView({ study, index }: { study: CaseStudy, index: number }) {
-  return (
-    <a
-      key={index}
-      href={`https://${study.url}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group relative"
-      data-aos="fade-up"
-      data-aos-delay={index * 100}
-    >
-      <Card className="overflow-hidden">
-        <div className='aspect-[16/10] relative'>
-          <img src={study.image} alt={study.title} className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-75 transition-all duration-300 flex items-center justify-center">
-            <div className="opacity-0 group-hover:opacity-100 text-white text-center p-4 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-              <h4 className="font-semibold mb-2">{study.title}</h4>
-              <p className="text-sm">{study.description}</p>
-              <div className="mt-4 flex items-center justify-center">
-                <span>Visit Site</span>
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </Card>
-    </a>
-  );
-}
