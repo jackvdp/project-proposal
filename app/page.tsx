@@ -84,6 +84,7 @@ const ProposalPage = () => {
       {/* Personal Touch */}
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto space-y-8" data-aos="fade-right">
+
           <Card className="p-8 border-2">
             <div className="flex items-start space-x-4">
               <Heart className="h-8 w-8 text-gray-600 flex-shrink-0" />
@@ -98,8 +99,8 @@ const ProposalPage = () => {
             </div>
           </Card>
 
-          <div
-            className="group relative overflow-hidden rounded-lg border-2 border-gray-100 p-6 transition-all hover:border-gray-200"
+          <Card
+            className="group relative overflow-hidden rounded-lg p-6 border-2 transition-all hover:border-gray-200"
             data-aos="fade-up"
             data-aos-delay="200"
           >
@@ -114,7 +115,7 @@ const ProposalPage = () => {
                 rel="noopener noreferrer"
                 className="flex items-center space-x-2 font-medium text-black transition-transform group-hover:translate-x-2"
               >
-                <span>Visit vanderpump.tech</span>
+                <b>Visit vanderpump.tech</b>
                 <ArrowRight className="h-4 w-4" />
               </a>
             </div>
@@ -123,12 +124,13 @@ const ProposalPage = () => {
             <div className="absolute inset-0 -z-10 opacity-5 group-hover:opacity-10 transition-opacity">
               <div className="absolute inset-0 bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100 animate-gradient"></div>
             </div>
-          </div>
+          </Card>
+
         </div>
       </section>
 
       {/* Process */}
-      <section className="py-20 px-6 bg-gray-50">
+      <section className="py-20 px-6 bg-slate-50">
         <div className="max-w-4xl mx-auto space-y-12">
           <h3 className="text-3xl font-semibold" data-aos="fade-up">How We'll Work Together</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -184,7 +186,7 @@ const ProposalPage = () => {
             data-aos-delay="500"
           >
             <div className="flex items-center space-x-3">
-              <Clock className="h-5 w-5 text-gray-600" />
+              <Clock className="h-[20px] w-[20px] flex-shrink-0 text-gray-600" />
               <p className="text-gray-600">
                 Expected timeline: Your new website will be fully designed, developed, and deployed within 3-4 weeks.
               </p>
@@ -199,14 +201,14 @@ const ProposalPage = () => {
           <h3 className="text-3xl font-semibold" data-aos="fade-up">Recent Projects</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {caseStudies.map((study, index) => (
-              <CaseStudyView study={study} index={index} />
+              <CaseStudyView key={index} study={study} index={index} />
             ))}
           </div>
         </div>
       </section>
 
       {/* Investment */}
-      <section className="py-20 px-6 bg-gray-50">
+      <section className="py-20 px-6 bg-slate-50">
         <div className="max-w-4xl mx-auto space-y-8" data-aos="fade-up">
           <h3 className="text-3xl font-semibold">Pricing</h3>
           <Card className="p-8">
